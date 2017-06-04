@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EatPotMovie</string>
+    <string name="item_activity_movies_movie_cover_cd">This is the cover of the movie.</string>
 </resources>
