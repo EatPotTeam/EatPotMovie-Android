@@ -5,12 +5,12 @@ package com.eatpotteam.eatpotmovie.data.retrofit;
  * Date  : 6/7/17
  */
 
-class ErrorBody {
+public class ErrorBody {
     public ErrorBody() {
         this("");
     }
 
-    public ErrorBody(String error) {
+    ErrorBody(String error) {
         this.error = error;
     }
 

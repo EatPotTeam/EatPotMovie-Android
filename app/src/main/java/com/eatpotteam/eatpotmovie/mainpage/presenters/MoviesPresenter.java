@@ -2,6 +2,7 @@ package com.eatpotteam.eatpotmovie.mainpage.presenters;
 
 import com.eatpotteam.eatpotmovie.data.DataRepo;
 import com.eatpotteam.eatpotmovie.data.IDataRepo;
+import com.eatpotteam.eatpotmovie.data.retrofit.HttpException;
 import com.eatpotteam.eatpotmovie.mainpage.contracts.MoviesContract;
 
 /**
@@ -20,6 +21,12 @@ public class MoviesPresenter implements MoviesContract.Presenter {
 
     @Override
     public void viewCreated() {
-        mView.showError("NOT_IMPLEMENTED");
+        mDataRepo.getMovies().subscribe(mView::refreshMoviesList, throwable -> {
+            if (throwable instanceof HttpException) {
+                mView.showError(((HttpException) throwable).errorBody().getError());
+            } else {
+                mView.showError(throwable.getMessage());
+            }
+        });
     }
 }
