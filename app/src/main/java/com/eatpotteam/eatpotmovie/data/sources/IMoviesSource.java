@@ -13,4 +13,6 @@ import io.reactivex.Observable;
 
 public interface IMoviesSource {
     Observable<ArrayList<Movie>> getMovies();
+
+    Observable<Movie> getMovieById(String movieId);
 }

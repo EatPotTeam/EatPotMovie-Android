@@ -10,6 +10,7 @@ import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 /**
  * Author: perqin
@@ -25,4 +26,7 @@ public interface EatPotMovieService {
 
     @GET("movie")
     Observable<ArrayList<Movie>> getMovies();
+
+    @GET("movie/{id}")
+    Observable<Movie> getMovie(@Path("id") String movieId);
 }

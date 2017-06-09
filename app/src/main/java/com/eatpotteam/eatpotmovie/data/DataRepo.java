@@ -91,8 +91,7 @@ public class DataRepo implements IDataRepo {
 
     @Override
     public Observable<Movie> getMovie(String movieId) {
-        // TODO: Implement getMovie
-        throw new UnsupportedOperationException("Method not implemented");
+        return mMovieSource.getMovieById(movieId);
     }
 
     @Override
