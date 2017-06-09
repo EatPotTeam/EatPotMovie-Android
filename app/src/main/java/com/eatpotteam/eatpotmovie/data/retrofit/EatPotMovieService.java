@@ -1,7 +1,10 @@
 package com.eatpotteam.eatpotmovie.data.retrofit;
 
+import com.eatpotteam.eatpotmovie.data.entities.Movie;
 import com.eatpotteam.eatpotmovie.data.pojo.RegisterBody;
 import com.eatpotteam.eatpotmovie.data.pojo.Token;
+
+import java.util.ArrayList;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
@@ -19,4 +22,7 @@ public interface EatPotMovieService {
 
     @GET("api/token")
     Observable<Token> getToken();
+
+    @GET("movie")
+    Observable<ArrayList<Movie>> getMovies();
 }

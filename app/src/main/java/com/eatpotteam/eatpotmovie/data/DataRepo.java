@@ -6,7 +6,9 @@ import com.eatpotteam.eatpotmovie.data.entities.Movie;
 import com.eatpotteam.eatpotmovie.data.entities.Order;
 import com.eatpotteam.eatpotmovie.data.entities.OrderItem;
 import com.eatpotteam.eatpotmovie.data.entities.Showing;
+import com.eatpotteam.eatpotmovie.data.sources.IMoviesSource;
 import com.eatpotteam.eatpotmovie.data.sources.IUserSource;
+import com.eatpotteam.eatpotmovie.data.sources.MovieSource;
 import com.eatpotteam.eatpotmovie.data.sources.UserSource;
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class DataRepo implements IDataRepo {
     private static DataRepo sInstance;
 
     private final IUserSource mUserSource;
+    private final IMoviesSource mMovieSource;
 
     public static DataRepo getInstance() {
         if (sInstance == null) {
@@ -32,6 +35,7 @@ public class DataRepo implements IDataRepo {
 
     private DataRepo() {
         mUserSource = new UserSource();
+        mMovieSource = new MovieSource();
     }
 
     @Override
@@ -82,8 +86,7 @@ public class DataRepo implements IDataRepo {
 
     @Override
     public Observable<ArrayList<Movie>> getMovies() {
-        // TODO: Implement getMovies
-        throw new UnsupportedOperationException("Method not implemented");
+        return mMovieSource.getMovies();
     }
 
     @Override
