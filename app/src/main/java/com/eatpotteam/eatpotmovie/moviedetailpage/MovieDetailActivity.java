@@ -33,9 +33,9 @@ public class MovieDetailActivity extends AppCompatActivity {
     }
 
     private void requestMovieInfo(int movieId) {
-        poster.setImageBitmap(BitmapFactory.decodeFile(getLocalPoster(movieId)));
+        /*poster.setImageBitmap(BitmapFactory.decodeFile(getLocalPoster(movieId)));
         title.setText(getMovieTitle(movieId));
-        info.setText(getMovieInfo(movieId));
+        info.setText(getMovieInfo(movieId));*/
     }
 
 
