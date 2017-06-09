@@ -8,6 +8,7 @@ android {
     defaultConfig {
         applicationId "com.eatpotteam.eatpotmovie"
         minSdkVersion 14
+        //noinspection OldTargetApi
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -21,9 +22,13 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     buildTypes {
+        debug {
+            buildConfigField "String", "APP_HOST", "\"https://ci.eatpotmovie.perqin.com/\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "APP_HOST", "\"https://eatpotmovie.perqin.com/\""
         }
     }
 }

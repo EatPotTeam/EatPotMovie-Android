@@ -18,9 +18,9 @@ import io.reactivex.Observable;
  * App global repository for data layer access.
  */
 public interface IDataRepo {
-    Observable<Object> login(String username, String password);
+    Observable<Object> login(String email, String password);
 
-    Observable<Object> register(String username, String password);
+    Observable<Object> register(String email, String password);
 
     Observable<ArrayList<Order>> getUserOrders();
 

@@ -6,6 +6,8 @@ import com.eatpotteam.eatpotmovie.data.entities.Movie;
 import com.eatpotteam.eatpotmovie.data.entities.Order;
 import com.eatpotteam.eatpotmovie.data.entities.OrderItem;
 import com.eatpotteam.eatpotmovie.data.entities.Showing;
+import com.eatpotteam.eatpotmovie.data.sources.IUserSource;
+import com.eatpotteam.eatpotmovie.data.sources.UserSource;
 
 import java.util.ArrayList;
 
@@ -19,6 +21,8 @@ import io.reactivex.Observable;
 public class DataRepo implements IDataRepo {
     private static DataRepo sInstance;
 
+    private final IUserSource mUserSource;
+
     public static DataRepo getInstance() {
         if (sInstance == null) {
             sInstance = new DataRepo();
@@ -27,18 +31,17 @@ public class DataRepo implements IDataRepo {
     }
 
     private DataRepo() {
+        mUserSource = new UserSource();
     }
 
     @Override
-    public Observable<Object> login(String username, String password) {
-        // TODO: Implement login
-        throw new UnsupportedOperationException("Method not implemented");
+    public Observable<Object> login(String email, String password) {
+        return mUserSource.login(email, password);
     }
 
     @Override
-    public Observable<Object> register(String username, String password) {
-        // TODO: Implement register
-        throw new UnsupportedOperationException("Method not implemented");
+    public Observable<Object> register(String email, String password) {
+        return mUserSource.register(email, password);
     }
 
     @Override
